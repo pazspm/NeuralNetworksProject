@@ -4,7 +4,7 @@ clear
 %    Informacoes sobre a rede e os dados
 numEntradas   = 6;     % Numero de nodos de entrada
 numEscondidos = 5;     % Numero de nodos escondidos
-numSaidas     = 1;     % Numero de nodos de saida
+numSaidas     = 2;     % Numero de nodos de saida
 numTr         = 10922;   % Numero de padroes de treinamento
 numVal        = 5460;    % Numero de padroes de validacao
 numTeste      = 5464;    % Numero de padroes de teste
@@ -104,7 +104,7 @@ fprintf('MSE para o conjunto de teste: %6.5f \n',desempenhoTeste);
 %Já veio no script
 classificacoesErradas = 0;
 for padrao = 1 : numTeste;
-    if saidasRedeTeste(padrao) ~= saidasTeste(padrao),
+    if nodoVencedorRede(padrao) ~= nodoVencedorDesejado(padrao),
         classificacoesErradas = classificacoesErradas + 1;
     end
 end
@@ -112,8 +112,9 @@ erroClassifTeste = 100 * (classificacoesErradas/numTeste);
 fprintf('Erro de classificacao para o conjunto de teste: %6.5f\n',erroClassifTeste);
 
 %Calcula a area embaixo da curva ROC
-[X,Y,T,AUC] = perfcurve(saidasTeste, saidasRedeTeste, 1);
-fprintf('AUC: %0.10f\n', AUC);
+[X_0,Y_0,T_0,AUC_0] = perfcurve(saidasTeste(1,:), saidasRedeTeste(1,:), 1);
+[X_1,Y_1,T_1,AUC_1] = perfcurve(saidasTeste(2,:), saidasRedeTeste(2,:), 1);
+fprintf('AUC-0: %0.10f AUC-1: %0.10f\n', AUC_0, AUC_1);
 %Plota a matriz de confusão
 figure('Name', 'Matriz de confusão');
 plotconfusion(saidasTeste, saidasRedeTeste);
