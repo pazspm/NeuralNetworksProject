@@ -1,0 +1,6 @@
+Resultados iteração: 1 ... 
+MSE para o conjunto de treinamento: 0.07534 
+MSE para o conjunto de validacao: 0.08113 
+MSE para o conjunto de teste: 0.09645 
+AUC-0: 0.9355962842 
+ AUC-1: 0.8818807064 
