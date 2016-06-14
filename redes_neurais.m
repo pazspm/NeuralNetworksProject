@@ -1,10 +1,8 @@
-function [targets, outputs, MSE_train, MSE_valid, MSE_test, desempenho, desempenhoTeste]=redes_neurais()
+function [targets, outputs, MSE_train, MSE_valid, MSE_test, desempenho, desempenhoTeste]=redes_neurais(num_intermediate_nodes, learning_rate, activation_function_name, output_function_name, learning_algorithm_name, weigth_algorithm_name)
     echo on
-    clear
-
     %    Informacoes sobre a rede e os dados
     numEntradas   = 6;     % Numero de nodos de entrada
-    numEscondidos = 5;     % Numero de nodos escondidos
+    numEscondidos = num_intermediate_nodes;     % Numero de nodos escondidos
     numSaidas     = 2;     % Numero de nodos de saida
     numTr         = 10922;   % Numero de padroes de treinamento
     numVal        = 5460;    % Numero de padroes de validacao
@@ -42,7 +40,7 @@ function [targets, outputs, MSE_train, MSE_valid, MSE_test, desempenho, desempen
          matrizFaixa(entrada,:) = [0 1];  
     end
 
-    rede = newff(matrizFaixa,[numEscondidos, numSaidas],{'tansig','tansig'},'traingdm','learngdm','mse');
+    rede = newff(matrizFaixa,[numEscondidos, numSaidas],{activation_function_name, output_function_name}, learning_algorithm_name, weigth_algorithm_name,'mse');
     % matrizFaixa                    : indica que todas as entradas possuem valores na faixa entre 0 e 1
     % [numEscondidos numSaidas]      : indica a quantidade de nodos escondidos e de saida da rede
     % {'logsig','logsig'}            : indica que os nodos das camadas escondida e de saida terao funcao de ativacao sigmoide logistica
@@ -54,7 +52,7 @@ function [targets, outputs, MSE_train, MSE_valid, MSE_test, desempenho, desempen
     echo on
     %   Parametros do treinamento (para ajuda, digite 'help traingd')
     rede.trainParam.epochs   = 10000;    % Maximo numero de iteracoes
-    rede.trainParam.lr       = 0.2;  % Taxa de aprendizado
+    rede.trainParam.lr       = learning_rate;  % Taxa de aprendizado
     rede.trainParam.goal     = 0;      % Criterio de minimo erro de treinamento
     rede.trainParam.max_fail = 10;      % Criterio de quantidade maxima de falhas na validacao
     rede.trainParam.min_grad = 0;      % Criterio de gradiente minimo
