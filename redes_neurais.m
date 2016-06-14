@@ -1,4 +1,4 @@
-function [targets, outputs, MSE_train, MSE_valid, MSE_test]=redes_neurais()
+function [targets, outputs, MSE_train, MSE_valid, MSE_test, desempenho, desempenhoTeste]=redes_neurais()
     echo on
     clear
 
