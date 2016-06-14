@@ -16,7 +16,7 @@ function [targets, outputs, MSE_train, MSE_valid, MSE_test]=redes_neurais()
     % fullfile('Datasets', 'learning_data.csv')
     arquivoTreinamento = fopen(fullfile('Datasets', 'learning_data.csv'),'rt');  
     arquivoValidacao   = fopen(fullfile('Datasets', 'validation_data.csv'),'rt');    
-    arquivoTeste       = fopen(fullfile('Datasets', 'test_data.csv'),'rt');        
+    arquivoTeste       = fopen('Datasets/test_data.csv','rt');        
 
     %    Lendo arquivos e armazenando dados em matrizes
     dadosTreinamento    = fscanf(arquivoTreinamento,'%f,',[(numEntradas + numSaidas), numTr]);   % Lendo arquivo de treinamento
