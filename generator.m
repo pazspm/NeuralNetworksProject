@@ -20,6 +20,6 @@ for n = 1:1
     fprintf(fileID, 'MSE para o conjunto de treinamento: %6.5f \r\n',desempenho.perf(length(desempenho.perf)));
     fprintf(fileID, 'MSE para o conjunto de validacao: %6.5f \r\n',desempenho.vperf(length(desempenho.vperf)));
     fprintf(fileID, 'MSE para o conjunto de teste: %6.5f \r\n',desempenhoTeste);
-    fprintf(fileID, 'AUC-0: %0.10f \r\nAUC-1: %0.10f \r\n', AUC_0, AUC_1);
+    fprintf(fileID, 'AUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', AUC_0, AUC_1);
     fclose(fileID);
 end
