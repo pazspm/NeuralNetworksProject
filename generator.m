@@ -75,21 +75,25 @@ fprintf(fileID, 'Resultados médio de %d iterações... \r\n\r\n', n);
 
 str = mat2str(trainMseVector);
 fprintf(fileID, '%s\r\n' ,str);
-fprintf(fileID, 'MSE para o conjunto de treinamento: %6.5f \r\n\r\n',meanTrainMse);
+fprintf(fileID, 'MSE médio para o conjunto de treinamento: %6.5f \r\n',meanTrainMse);
+fprintf(fileID, 'MSE (desvio padrão) para o conjunto de treinamento: %6.5f \r\n\r\n',std(trainMseVector));
 
 str = mat2str(validMseVector);
 fprintf(fileID, '%s\r\n' ,str);
-fprintf(fileID, 'MSE para o conjunto de validacao: %6.5f \r\n\r\n',meanValidMse);
+fprintf(fileID, 'MSE médio para o conjunto de validacao: %6.5f \r\n',meanValidMse);
+fprintf(fileID, 'MSE (desvio padrão) para o conjunto de validacao: %6.5f \r\n\r\n',std(validMseVector));
 
 str = mat2str(testMseVector);
 fprintf(fileID, '%s\r\n' ,str);
-fprintf(fileID, 'MSE para o conjunto de teste: %6.5f \r\n\r\n',meanTestMse);
+fprintf(fileID, 'MSE médio para o conjunto de teste: %6.5f \r\n',meanTestMse);
+fprintf(fileID, 'MSE (desvio padrão) para o conjunto de teste: %6.5f \r\n\r\n',std(testMseVector));
 
 str = mat2str(auc0Vector);
-fprintf(fileID, '%s\r\n' ,str);
+fprintf(fileID, 'AUCs-0: %s\r\n' ,str);
 str = mat2str(auc1Vector);
-fprintf(fileID, '%s\r\n' ,str);
+fprintf(fileID, 'AUCs-1: %s\r\n' ,str);
 
-fprintf(fileID, 'AUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', meanAuc0, meanAuc1);
+fprintf(fileID, 'Média de AUC das classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', meanAuc0, meanAuc1);
+fprintf(fileID, 'Desvio padrão de AUC das classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', std(auc0Vector), std(auc1Vector));
 fclose(fileID);
 
