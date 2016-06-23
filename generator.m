@@ -1,11 +1,11 @@
 mkdir('./Results');
 
 % Escolher aqui número de iterações por experimento
-number_iterations = 1;
+number_iterations = 10;
 
 % Escolher os valores dos diferentes experimentos, atualmente apenas para o
 % número de nós
-number_neurons_input = [1,3];
+number_neurons_input = [1,3,5,12,27];
 length_vector = size(number_neurons_input,2);
 
 for i = 1:length_vector
