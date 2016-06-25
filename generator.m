@@ -1,22 +1,24 @@
 mkdir('./Results');
 
-% Escolher aqui número de iterações por experimento
+% Number of iteration over each experiment
 number_iterations = 2;
 
-% Escolher os valores dos diferentes experimentos, atualmente apenas para o
-% número de nós
+% Possible values for the number of hidden neurons
 %number_neurons_input = [1,3,5,12,27];
 number_neurons_input= [3];
 length_vector_number = size(number_neurons_input,2);
 
+% Possible values for the learning rate
 %learning_rate = [0.05,0.1,0.2,0.3,0.7,1.1];
 learning_rate = [0.2];
 length_vector_learning = size(learning_rate,2);
 
+% Possible values for the activation function of intermediate hidden neurons
 %activation_function_name = {'tansig' 'logsig' 'purelin'};
 activation_function_name = {'tansig'};
 length_vector_act = size(activation_function_name,2);
 
+% Possible values for the activation function of output neurons
 %output_function_name = {'tansig' 'logsig' 'purelin'};
 output_function_name = {'tansig'};
 length_vector_out = size(output_function_name,2);
