@@ -1,11 +1,11 @@
 mkdir('./Results');
 
 % Number of iteration over each experiment
-number_iterations = 2;
+number_iterations = 10;
 
 % Possible values for the number of hidden neurons
 %number_neurons_input = [1,3,5,12,27];
-number_neurons_input= [3];
+number_neurons_input= [5];
 length_vector_number = size(number_neurons_input,2);
 
 % Possible values for the learning rate
