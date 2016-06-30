@@ -15,12 +15,12 @@ length_vector_learning = size(learning_rate,2);
 
 % Possible values for the activation function of intermediate hidden neurons
 % nivel 2: activation_function_name = {'tansig' 'logsig'};
-activation_function_name = {'tansig'};
+activation_function_name = {'tansig' 'logsig'};
 length_vector_act = size(activation_function_name,2);
 
 % Possible values for the activation function of output neurons
 % nivel 2: output_function_name = {'logsig' 'purelin'};
-output_function_name = {'purelin'};
+output_function_name = {'logsig' 'purelin'};
 length_vector_out = size(output_function_name,2);
 
 for y = 1:length_vector_out
