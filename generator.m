@@ -4,23 +4,23 @@ mkdir('./Results');
 number_iterations = 10;
 
 % Possible values for the number of hidden neurons
-%number_neurons_input = [1,3,5,12,27];
+% nivel 1: number_neurons_input = [1,3,5,12,27];
 number_neurons_input= [5];
 length_vector_number = size(number_neurons_input,2);
 
 % Possible values for the learning rate
-%learning_rate = [0.05,0.1,0.2,0.3,0.7,1.1];
-learning_rate = [0.2];
+% nivel 1,5: learning_rate = [0.05,0.1,0.2,0.3,0.7,1.1];
+learning_rate = [0.05,0.1,0.2,0.3,0.7,1.1];
 length_vector_learning = size(learning_rate,2);
 
 % Possible values for the activation function of intermediate hidden neurons
-%activation_function_name = {'tansig' 'logsig' 'purelin'};
+% nivel 2: activation_function_name = {'tansig' 'logsig'};
 activation_function_name = {'tansig'};
 length_vector_act = size(activation_function_name,2);
 
 % Possible values for the activation function of output neurons
-%output_function_name = {'tansig' 'logsig' 'purelin'};
-output_function_name = {'tansig'};
+% nivel 2: output_function_name = {'logsig' 'purelin'};
+output_function_name = {'purelin'};
 length_vector_out = size(output_function_name,2);
 
 for y = 1:length_vector_out
