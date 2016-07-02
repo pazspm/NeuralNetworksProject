@@ -2,7 +2,7 @@
 
 This repository is destined for Neural Networks [IF701](http://www.cin.ufpe.br/~gcv/web_lci/intro.html "IF701")'s course Project.
 
-It is given a Neural Network script implementation **redes_neurais.m** by the professor Germano C. Vasconcelos. Having this, the main goal is to understand the effects of the different parameters of a Neural Network and focus on achieve its best performance applied to a problem.
+It is given a Neural Network script implementation **redes_neurais.m** by the professor Germano C. Vasconcelos. Having this, the ma«in goal is to understand the effects of the different parameters of a Neural Network and focus on achieve its best performance applied to a problem.
 
 We took a dataset of breast cancer detected using mammography, the dataset contains approximately 10000 records, each record has 6 atributes, its classification (0 or 1) and it's available in **/Datasets**.
 
@@ -29,3 +29,21 @@ output_function_name = {'tansig' 'logsig' 'purelin'};
 ```
 
 Changing others parameters will be available soon...
+
+# How to parse the data results #
+
+Because the results are not easy to copy and paste to other softwares, we created a parser that reads all the results given and returns the pure data with tab separating them, one per line. An example below:
+
+```
+python3 to_line.py ./vddm/level_1.5/neruons_*/Results.txt -flag > test.in
+```
+
+This example returns all the results generated in level 1.5 and prints them in the file test.in. The **flag** is to indicate not to print the file path. The **flag** should be used if the order of the print it not known.
+
+A sample of the output for the command above is:
+
+```
+0.08442	0.01625	0.10686	0.01272	0.08130	0.02087	0.9155609923	0.0200833200	0.9152082385	0.0208089504
+0.11256	0.09452	0.12655	0.09331	0.09947	0.08099	0.9102270141	0.0668725209	0.8561606736	0.2135800336
+0.12732	0.11002	0.14880	0.09855	0.11481	0.07513	0.9145180929	0.0348379640	0.8383744879	0.2476504636
+```
