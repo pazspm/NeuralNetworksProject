@@ -52,10 +52,10 @@ function [targets, outputs, MSE_train, MSE_valid, MSE_test]=redes_neurais(num_in
     rede = init(rede);
     echo on
     %   Parametros do treinamento (para ajuda, digite 'help traingd')
-    rede.trainParam.epochs   = 10000;    % Maximo numero de iteracoes
+    rede.trainParam.epochs   = 15000;    % Maximo numero de iteracoes
     rede.trainParam.lr       = learning_rate;  % Taxa de aprendizado
     rede.trainParam.goal     = 0;      % Criterio de minimo erro de treinamento
-    rede.trainParam.max_fail = 10;      % Criterio de quantidade maxima de falhas na validacao
+    rede.trainParam.max_fail = 20;     % Criterio de quantidade maxima de falhas na validacao
     rede.trainParam.min_grad = 0;      % Criterio de gradiente minimo
     rede.trainParam.show     = 10;     % Iteracoes entre exibicoes na tela (preenchendo com 'NaN', nao exibe na tela)
     rede.trainParam.time     = inf;    % Tempo maximo (em segundos) para o treinamento
