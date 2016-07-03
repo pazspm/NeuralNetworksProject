@@ -9,6 +9,20 @@ We took a dataset of breast cancer detected using mammography, the dataset conta
 # Running
 
 The project is based on Matlab so you should have access to this plataform in order to run the script.
+
+Some pre-defined parameters for the Net are described in **redes_neurais.m** and are given bellow. Our bests results were achieved with these configurations:
+
+```
+rede.trainParam.epochs   = 15000;    % Max number of epochs/iterations
+rede.trainParam.lr       = learning_rate;  % Learn rate defined as a parameter of the function
+rede.trainParam.goal     = 0;      % Error min to achieve during training
+rede.trainParam.max_fail = 20;     % Max quantity of failures during validation
+rede.trainParam.min_grad = 0;      % Min gradient criteria
+rede.trainParam.show     = 10;     % Number of iterations shown in screen
+rede.trainParam.time     = inf;    % Max time in seconds for training
+
+```
+
 To run the script you only have to access the **generator.m** file. This file setup all the experiments, you will also notice that you are allowed to change the parameters as well as you want.
 
 ```
@@ -26,6 +40,20 @@ activation_function_name = {'tansig' 'logsig' 'purelin'};
 
 % Possible values for the activation function of output neurons
 output_function_name = {'tansig' 'logsig' 'purelin'};
+
+% Possible values for the activation function of output neurons
+learning_algorithm_name = {
+'traincgf' % Conjugate gradient backpropagation with Fletcher-Reeves updates
+'traincgp' % Conjugate gradient backpropagation with Polak-Ribiére updates
+'traingda' % Gradient descent with adaptive learning rate backpropagation
+'traingdm' % Gradient descent with momentum backpropagation
+'traingdx' % Gradient descent with momentum and adaptive learning rate backpropagation
+'trainlm' % Levenberg-Marquardt backpropagation
+'trainoss' % One-step secant backpropagation
+'trainrp' % Resilient backpropagation
+'trainscg' % Scaled conjugate gradient backpropagation
+};
+
 ```
 
 Changing others parameters will be available soon...
