@@ -6,7 +6,8 @@ qtd_ele = size(class_data,1);
 
 learning_size = floor(0.50*qtd_ele);
 validation_size = floor(0.25*qtd_ele);
-test_size = qtd_ele - learning_size - validation_size;
+% test_size = qtd_ele - learning_size - validation_size;
+test_size = 65;
 
 t1 = fopen(LEARNING_FILE, 'w');
 t2 = fopen(VALIDATION_FILE, 'w');
