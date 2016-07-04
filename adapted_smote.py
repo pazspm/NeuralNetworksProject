@@ -40,6 +40,7 @@ def interpolate(v, nei):
         rnd = random.uniform(0, 0.5)
 
     npoint = map(operator.add, v[:-1], map(operator.mul, [rnd for i in range(len(v)-1)], vec))
+    npoint.append(v[-1])
     return tuple(npoint)
 
 def define_new_points(c2_set, all_data, c1_len, k):
