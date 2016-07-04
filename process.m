@@ -1,7 +1,7 @@
-LEARNING_FILE = 'learning_data_c2.csv';
-VALIDATION_FILE = 'validation_data_c2.csv';
-TEST_FILE = 'test_data_c2.csv';
-class_data = csvread('c2_data.csv');
+LEARNING_FILE = './Datasets/OriginalDatabase/smote_learning_data_c2.csv';
+VALIDATION_FILE = './Datasets/OriginalDatabase/smote_validation_data_c2.csv';
+TEST_FILE = './Datasets/OriginalDatabase/smote_test_data_c2.csv';
+class_data = csvread('./Datasets/OriginalDatabase/c2_adapted_smote.csv');
 qtd_ele = size(class_data,1);
 
 learning_size = floor(0.50*qtd_ele);

@@ -1,8 +1,8 @@
 % possivel http://stackoverflow.com/questions/5444248/random-order-of-rows-matlab
 
-class1_File = 'C:\Users\vddm\Downloads\test_data_c1.csv';
-class2_File = 'C:\Users\vddm\Downloads\test_data_c2.csv';
-merge_file = 'C:\Users\vddm\Downloads\test_data.csv';
+class1_File = './Datasets/OriginalDatabase/smote_validation_data_c1.csv';
+class2_File = './Datasets/OriginalDatabase/smote_validation_data_c2.csv';
+merge_file = './Datasets/OriginalDatabase/smote_validation_data.csv';
 
 merge_file_id = fopen(merge_file, 'w') 
 

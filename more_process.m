@@ -1,6 +1,6 @@
 % apply in each category: learning, validation and test
-class1_File = 'learning_data_c1.csv';
-class2_File = 'learning_data_c2.csv';
+class1_File = 'smote_learning_data_c1.csv';
+class2_File = 'smote_learning_data_c2.csv';
 
 class_data1 = csvread(class1_File);
 class_data2 = csvread(class2_File);
