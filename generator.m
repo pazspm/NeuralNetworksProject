@@ -5,12 +5,12 @@ number_iterations = 10;
 
 % Possible values for the number of hidden neurons
 % nivel 1: number_neurons_input = [1,3,5,12,27];
-number_neurons_input= [5];
+number_neurons_input= [27,12];
 length_vector_number = size(number_neurons_input,2);
 
 % Possible values for the learning rate
 % nivel 1,5: learning_rate = [0.05,0.1,0.2,0.3,0.7,1.1];
-learning_rate = [0.2];
+learning_rate = [0.05];
 length_vector_learning = size(learning_rate,2);
 
 % Possible values for the activation function of intermediate hidden neurons
@@ -25,7 +25,7 @@ length_vector_out = size(output_function_name,2);
 
 % Possible values for the activation function of output neurons
 %learning_algorithm_name = {'traincgb', 'traincgf', 'traincgp', 'traingda', 'traingdm', 'traingdx', 'trainlm','trainoss', 'trainrp', 'trainscg'};
-learning_algorithm_name = {'traincgf', 'traincgp', 'traingda', 'traingdm', 'traingdx', 'trainlm','trainoss', 'trainrp', 'trainscg'};
+learning_algorithm_name = {'traincgf', 'traincgp', 'traingda', 'traingdx', 'traingdm', 'trainlm', 'trainoss', 'trainrp', 'trainscg'};
 length_vector_algo = size(learning_algorithm_name,2);
 
 for z = 1:length_vector_algo
