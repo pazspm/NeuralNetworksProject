@@ -2,13 +2,29 @@
 
 This repository is destined for Neural Networks [IF701](http://www.cin.ufpe.br/~gcv/web_lci/intro.html "IF701")'s course Project.
 
-It is given a Neural Network script implementation **redes_neurais.m** by the professor Germano C. Vasconcelos. Having this, the ma«in goal is to understand the effects of the different parameters of a Neural Network and focus on achieve its best performance applied to a problem.
+It is given a Neural Network script implementation **redes_neurais.m** by the professor Germano C. Vasconcelos. Having this, the main goal is to understand the effects of the different parameters of a Neural Network and focus on achieve its best performance applied to a problem.
 
-We took a dataset of breast cancer detected using mammography, the dataset contains approximately 10000 records, each record has 6 atributes, its classification (0 or 1) and it's available in **/Datasets**.
+We took a dataset of breast cancer detected using mammography, the dataset contains approximately 11183 records, each record has 6 atributes, its classification (10923 to class 0 and 260 to class 1) and it's available in **/Datasets**.
 
-# Running
+# First step: Choosing datasets
 
-The project is based on Matlab so you should have access to this plataform in order to run the script.
+To choose the datasets to be loaded you first have to go to **redes_neurais.m** and look for the line **16** where you can fill the path to your data.
+
+```
+%    Opening files
+arquivoTreinamento = fopen(fullfile('Datasets', 'smote_learning_data.csv'),'rt');
+arquivoValidacao   = fopen(fullfile('Datasets', 'smote_validation_data.csv'),'rt');
+arquivoTeste       = fopen(fullfile('Datasets', 'smote_test_data.csv'),'rt');
+```
+arquivoTreinamento, means the path to the learning training data.
+arquivoValidacao, means the path to the validation training data.
+arquivoTeste, means the path to the test training data.
+
+See **/Datasets** folder and files to understand the data format.
+
+# Second step: Configuring and Running the Net
+
+The project is based on Matlab so you should have access to this platform in order to run the script.
 
 Some pre-defined parameters for the Net are described in **redes_neurais.m** and are given bellow. Our bests results were achieved with these configurations:
 
@@ -55,10 +71,10 @@ learning_algorithm_name = {
 };
 
 ```
+The output will be available in "Results" folder, this folder contains a folder for each configuration tested, inside the configuration folder you will have the results.txt as well a folder for each iteration graphic results (AUC and Confusion Matrix). The results.txt file contains a compilation of performance of this configuration according with the number of iterations choosen before.
 
-Changing others parameters will be available soon...
-
-# How to run Adapted SMOTE algorithm #
+# More scripts
+## How to run Adapted SMOTE algorithm
 
 A variation of [SMOTE](https://www.jair.org/media/953/live-953-2037-jair.pdf "SMOTE") algorithm was implemented and it is in the file: **adapted_smote.py**
 
@@ -69,7 +85,7 @@ python adapted_smote.py c1_file_data.csv c2_file_data.csv k
 ```
 First argument is the class 1 file name, second argument is the class 2 file name, the last one consists in the number of how many neighbors should be considered in the SMOTE search for the closest neighbors. By default the output file is named as "c2_adapted_smote.csv".
 
-# How to parse the data results #
+## How to parse the data results #
 
 Because the results are not easy to copy and paste to other softwares, we created a parser that reads all the results given and returns the pure data with tab separating them, one per line. An example below:
 

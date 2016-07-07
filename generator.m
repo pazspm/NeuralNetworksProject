@@ -50,33 +50,33 @@ for z = 1:length_vector_algo
                     auc1Vector = [];
 
                     for n = 1:number_iterations
-                        fprintf('Rodando iteraçao: %d ...', n);
+                        fprintf('Running iteration number: %d ...', n);
 
-                        %Assinatura da funçao redes neurais, em ordem:
-                        %num_intermediate_nodes    num de nós na camada intermediária(int)
+                        %Assinatura da funï¿½ao redes neurais, em ordem:
+                        %num_intermediate_nodes    num de nï¿½s na camada intermediï¿½ria(int)
                         %learning_rate             taxa de aprendizagem(doubleO)
-                        %activation_function_name  funçao de ativaçao(string)
-                        %output_function_name      funçao dos nós de saída(string)
+                        %activation_function_name  funï¿½ao de ativaï¿½ao(string)
+                        %output_function_name      funï¿½ao dos nï¿½s de saï¿½da(string)
                         %learning_algorithm_name   algoritmo de aprendizagem(string)
                         %weigth_algorithm_name)    algoritmo de aprendizegem do pesos(string)
 
-                        %Opções de funçao de ativaçao: 
+                        %Opï¿½ï¿½es de funï¿½ao de ativaï¿½ao:
                         %'tansig', 'logsig', or 'purelin'
 
-                        %Opções de funçao de nó de saída:
+                        %Opï¿½ï¿½es de funï¿½ao de nï¿½ de saï¿½da:
                         %'tansig', 'logsig', or 'purelin'
 
-                        %Opções de algoritmo de aprendizagem:
+                        %Opï¿½ï¿½es de algoritmo de aprendizagem:
                         %'traincgb', 'traincgf', 'traincgp', 'traingda', 'traingdm', 'traingdx', 'trainlm',
                         %'trainoss', 'trainrp', 'trainscg
 
-                        %Opções de algoritmo de aprendizagem de peso:
+                        %Opï¿½ï¿½es de algoritmo de aprendizagem de peso:
                         %'learngd' or 'learngdm'
 
                         neurons = number_neurons_input(1,i);
                         learn = learning_rate(1,j);
-                        act = activation_function_name(1,k);                    
-                        out = output_function_name(1,y);  
+                        act = activation_function_name(1,k);
+                        out = output_function_name(1,y);
                         algo = learning_algorithm_name(1,z);
                         [targets, otuputs, MSE_train, MSE_valid, MSE_test]=redes_neurais(neurons, learn, act{1}, out{1}, algo{1}, 'learngdm');
 
@@ -98,18 +98,18 @@ for z = 1:length_vector_algo
                         mkdir(outdir2{1});
 
                         %Plota a matriz de confusao
-                        a = figure('Name', 'Matriz de confusao', 'Visible', 'Off');
+                        a = figure('Name', 'Confusion Matriz', 'Visible', 'Off');
                         plotconfusion(targets, otuputs);
                         print(strcat(outdir2{1}, '/Confusion') , '-dpng');
-                        
+
                         %Plota a curva ROC
-                        b = figure('Name', 'Curva ROC', 'visible', 'off');
+                        b = figure('Name', 'ROC Curve', 'visible', 'off');
                         plotroc(targets, otuputs);
                         print(strcat(outdir2{1}, '/ROC'), '-dpng');
-                        
+
                         delete(a);
                         delete(b);
-                        
+
                     end
 
                     meanTrainMse = mean(trainMseVector);
@@ -119,32 +119,32 @@ for z = 1:length_vector_algo
                     meanAuc1 = mean(auc1Vector);
 
                     fileID = fopen(strcat(outdir{1}, '/results.txt'), 'w');
-                    fprintf(fileID, 'Resultados medio de %d iteracoes... \r\n\r\n', n);
+                    fprintf(fileID, 'Results counting %d iterations... \r\n\r\n', n);
 
                     str = mat2str(trainMseVector);
                     fprintf(fileID, '%s\r\n' ,str);
-                    fprintf(fileID, 'MSE medio para o conjunto de treinamento: %6.5f \r\n',meanTrainMse);
-                    fprintf(fileID, 'MSE (desvio padrao) para o conjunto de treinamento: %6.5f \r\n\r\n',std(trainMseVector));
+                    fprintf(fileID, 'Mean MSE of the training set: %6.5f \r\n',meanTrainMse);
+                    fprintf(fileID, 'MSE (standard deviation) of training set: %6.5f \r\n\r\n',std(trainMseVector));
 
                     str = mat2str(validMseVector);
                     fprintf(fileID, '%s\r\n' ,str);
-                    fprintf(fileID, 'MSE medio para o conjunto de validacao: %6.5f \r\n',meanValidMse);
-                    fprintf(fileID, 'MSE (desvio padrao) para o conjunto de validacao: %6.5f \r\n\r\n',std(validMseVector));
+                    fprintf(fileID, 'Mean MSE of the validation set: %6.5f \r\n',meanValidMse);
+                    fprintf(fileID, 'MSE (standard deviation) of validation set: %6.5f \r\n\r\n',std(validMseVector));
 
                     str = mat2str(testMseVector);
                     fprintf(fileID, '%s\r\n' ,str);
-                    fprintf(fileID, 'MSE medio para o conjunto de teste: %6.5f \r\n',meanTestMse);
-                    fprintf(fileID, 'MSE (desvio padrao) para o conjunto de teste: %6.5f \r\n\r\n',std(testMseVector));
+                    fprintf(fileID, 'Mean MSE of the test set: %6.5f \r\n',meanTestMse);
+                    fprintf(fileID, 'MSE (standard deviation) of test set: %6.5f \r\n\r\n',std(testMseVector));
 
                     str = mat2str(auc0Vector);
                     fprintf(fileID, 'AUCs-0: %s\r\n' ,str);
                     str = mat2str(auc1Vector);
                     fprintf(fileID, 'AUCs-1: %s\r\n' ,str);
 
-                    fprintf(fileID, 'Media de AUC das classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', meanAuc0, meanAuc1);
-                    fprintf(fileID, 'Desvio padrao de AUC das classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', std(auc0Vector), std(auc1Vector));
+                    fprintf(fileID, 'Mean of AUC for both classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', meanAuc0, meanAuc1);
+                    fprintf(fileID, 'Standard deviation of AUC for both classes:\r\nAUC-0: %0.10f\r\nAUC-1: %0.10f \r\n', std(auc0Vector), std(auc1Vector));
                     fclose(fileID);
-                    
+
                 end
             end
         end
