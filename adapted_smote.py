@@ -76,13 +76,15 @@ if __name__ == '__main__':
     #Arguments
     parser = argparse.ArgumentParser()
 
+    parser.add_argument('C1', help = 'Class 1 file name', type = str)
+    parser.add_argument('C2', help = 'Class 2 file name', type = str)
     parser.add_argument('K', help = 'The K for the k-neighbors', type = int)
 
     args = parser.parse_args()
 
-    c1_file = open('Datasets/c1_data.csv')
-    c2_file = open('Datasets/c2_data.csv')
-    c2_extra = open('Datasets/c2_adapted_smote.csv', 'w')
+    c1_file = open(args.C1)
+    c2_file = open(args.C2)
+    c2_extra = open('c2_adapted_smote.csv', 'w')
     c1_set = []
     c2_set = []
 

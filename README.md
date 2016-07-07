@@ -58,12 +58,23 @@ learning_algorithm_name = {
 
 Changing others parameters will be available soon...
 
+# How to run Adapted SMOTE algorithm #
+
+A variation of [SMOTE](https://www.jair.org/media/953/live-953-2037-jair.pdf "SMOTE") algorithm was implemented and it is in the file: **adapted_smote.py**
+
+An example of execution is below:
+
+```
+python adapted_smote.py c1_file_data.csv c2_file_data.csv k
+```
+First argument is the class 1 file name, second argument is the class 2 file name, the last one consists in the number of how many neighbors should be considered in the SMOTE search for the closest neighbors. By default the output file is named as "c2_adapted_smote.csv".
+
 # How to parse the data results #
 
 Because the results are not easy to copy and paste to other softwares, we created a parser that reads all the results given and returns the pure data with tab separating them, one per line. An example below:
 
 ```
-python3 to_line.py ./vddm/level_1.5/neruons_*/Results.txt -flag > test.in
+python3 to_line.py ./vddm/level_1.5/neruons_*/Results.txt -flag > compiled-results.in
 ```
 
 This example returns all the results generated in level 1.5 and prints them in the file test.in. The **flag** is to indicate not to print the file path. The **flag** should be used if the order of the print it not known.
